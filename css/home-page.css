@@ -1,3 +1,9 @@
+
+
+
+.container{display: flex;justify-content: center;}
+
+
 :root {
   --color-shades-dark: rgb(25, 25, 25);
   --color-shades-light: rgb(165, 167, 175);
@@ -5,7 +11,7 @@
   }
 
 
-header{background-color: red;position: fixed;width: 100%;top:0;left:0}
+header{background-color: red;position: fixed;width: 100%;top:0;left:0;}
 
 header nav{
     text-align: center;
@@ -29,16 +35,10 @@ a:where(:hover, :focus) {
 
 
 
+#gambiarra{background-color: rgba(115, 255, 0, 0);margin-top: 76px;}
 
-footer{background-color: gray;width: 100%;bottom:0;position:absolute;left:0;text-align: center;height: 100px;display: flex;align-items: center}
-
-
-#redes-sociais{margin-left: 40px;}
-footer img{width: 30px;padding: 5px;}
-
-
-footer a{text-decoration: none;color:black}
-footer li{list-style: none;}
+#box-left{background-color: aqua;margin-right: 50px;width: 40%;height: 100%;text-align: center;}
+#box-right{background-color: green;width: 40%;height: 100%;text-align: center;}
 
 
 
@@ -46,6 +46,21 @@ footer li{list-style: none;}
 
 
 
+#footer{background-color: rgb(0, 0, 0);height:200px;margin-top: 200px;display: flex;justify-content: center;bottom:1;position:absolute;width: 100%;left: 0px;}
+
+
+#footer-box{width: 33.4%;display: flex;justify-content: center;align-items: center;}
+
+
+#footer-box img{width: 50px;padding: 5px;}
+#footer-box img:hover{border:white 1px solid;transition: 0.5s;}
+#alinhar-img{width:150px;height: 100px;}
+
+
+#link-footer{text-align: center;}
+#link-footer a{color: white;text-decoration: none;line-height: 30px;font-weight: 500;}
+#link-footer a:hover{font-weight:1000;font-size: large;transition: 0.3s;}
+#footer-box p{font-size:smaller;color:white}
 
 
 
