@@ -30,12 +30,33 @@ header{background-color: red;position: fixed;width: 100%;top:0;left:0;font-famil
 header img{width: 50px;}
 #logo-header{background-color: blue;width: 33%;text-align: center;}
 #navegacao{background-color: blueviolet;width: 33%;text-align: center;}
-#login-header{background-color: chocolate;width: 33%;text-align: center;}
-
+#login-header{background-color: chocolate;width: 33%;text-align: center; padding: 15px;}
+#login-header a img{width: 20px;}
 
 header nav{
     font-family: Segoe UI, system-ui, -apple-system, sans-serif;
+    font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+    
+  /*animação da nave*/
+  
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  color: white; 
+  padding: 15px; 
+  text-align: center; 
+   
 }
+
+.contente { 
+  margin-top: 60px; /* Espaço para a barra de navegação */ 
+  padding: 20px;
+ 
+} 
 header nav a {--text-color: var(--color-shades-dark);
   
     border-block-end: 3px solid var(--border-color, transparent);
@@ -46,8 +67,6 @@ header nav a {--text-color: var(--color-shades-dark);
     text-decoration: none;
 }
 
-
-
 a:where(:hover, :focus) {
     --border-color: var(--text-color);
   }
@@ -57,13 +76,48 @@ a:where(:hover, :focus) {
 
 
 
-#box-left{background-color: rgb(0, 255, 255);margin-right: 50px;width: 40%;height: 100%;text-align: center;margin-top: 100px;
+#box-left{background-color: rgb(0, 255, 255);margin-right: 50px;width: 40%;height: 100%;text-align: center;margin-top: 100px; 
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
 
+  
 }
+
+#box-left button{
+  font-family: "Jost"; 
+  background-color: #2196F3;
+    border: none;
+    color: #fff;
+    padding: 13px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+
+#Continuação{
+margin-top: 110px; text-align: center; font-family: "Jost"; color: #fff; 
+
+}
+
+#textbox-1{
+  margin-right: 30px;width: 20%; padding: 5%; background-color: #2196F3; border-radius: 20px;
+}
+
+#textbox-2{
+width: 20%; padding: 5%; background-color: #2196F3; border-radius: 20px;
+}
+
+
+
+
+
+
+
 
 
 
