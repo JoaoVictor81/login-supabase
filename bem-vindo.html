@@ -5,32 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo</title>
     <link rel="stylesheet" href="css/bem-vindo.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-
-    <h2 id="mensagem">Carregando...</h2>
-
-    <button onclick="logout()">Sair</button>
-
-    <script>
-        const usuarioEmail = localStorage.getItem("usuarioEmail");
-
-        if (usuarioEmail) {
-            document.getElementById("mensagem").innerText = `Bem-vindo, ${usuarioEmail}!`;
-        } else {
-            document.getElementById("mensagem").innerText = "Usuário não autenticado!";
-        }
-
-        function logout() {
-            localStorage.removeItem("usuarioEmail");
-            window.location.href = "cadastro.html";
-        }
-    </script>
-
-
-<footer>
+ 
+    <header>
+        <div class="container">
     
-</footer>
+            <div id="logo-header">
+                <a href="home-page.html">OZEN<img src="icons/1000045368-removebg-preview.png" alt=""></a>
+            </div>
+    
+            <div id="navegacao">
+                <nav>
+                    <a href="home-page.html">inicio</a>
+                    <a href="#">serviços</a>
+                    <a href="contato.html">contato</a>
+                    </nav>
+            </div>
+    
+            <div id="login-header">
+                <div id="nome-user">
+                    <p id="mensagem">Carregando...</p>
+                    <button onclick="logout()">Sair</button>
+                </div>
+            </div>
+    
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+  <script>
+    // Criação correta do client Supabase
+    const supabaseClient = supabase.createClient(
+      "https://ucboerqhyglomysqvehy.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjYm9lcnFoeWdsb215c3F2ZWh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM2MDU3ODIsImV4cCI6MjA1OTE4MTc4Mn0.1KiDEnYpKYqbfVaarGE0-ECIR_duhyZ6zbJ1KFslc6c"
+    );
+
+    // Busca os dados do usuário logado
+    async function carregarUsuario() {
+      console.log("Buscando sessão do usuário...");
+
+      const { data, error } = await supabaseClient.auth.getSession();
+
+      if (error || !data.session) {
+        document.getElementById("mensagem").innerText = "Usuário não autenticado!";
+        return;
+      }
+
+      const user = data.session.user;
+
+      // Aqui pegamos os dados personalizados (nome, telefone) se foram enviados no signup
+      const nome = user.user_metadata?.nome || user.email;
+
+      document.getElementById("mensagem").innerText = `Bem-vindo, ${nome}!`;
+    }
+
+    carregarUsuario();
+
+    function logout() {
+      supabaseClient.auth.signOut();
+      localStorage.removeItem("usuarioEmail");
+      window.location.href = "login.html";
+    }
+  </script>
+    </div>
+ 
+
+
+    <footer id="footer">
+        <div id="footer-box">
+            <div id="alinhar-img">
+            <a href="#"><img src="icons/facebook.png" alt=""></a>
+            <a href="#"><img src="icons/instagram.jpg" alt=""></a>
+            <a href="#"><img src="icons/twitter.png" alt=""></a>
+            <a href="#"><img src="icons/zap.png" alt=""></a>
+            </div>
+            
+        </div>
+        <div id="footer-box">
+            <div id="link-footer">
+            <a href="home-page.html">inicio</a><br>
+            <a href="login.html">entrar</a><br>
+            <a href="#">serviços</a><br>
+            <a href="contato.html">contato</a>
+            </div>
+        </div>
+        <div id="footer-box">
+            <p>© 2025 OZEN. todos os direitos reservados</p>
+        </div>
+    </footer>
+
+
 
 </body>
 </html>

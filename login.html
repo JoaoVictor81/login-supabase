@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/registrar.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Login com Supabase</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body>
+<body> 
     <header>
         <div class="container">
     
@@ -25,7 +24,7 @@
             </div>
     
             <div id="login-header">
-                <a href="login.html">entrar <img src="icons/google-login-icon-9.png" alt=""></a>
+                <a href="login.html">entrar / cadastrar<img src="icons/google-login-icon-9.png" alt=""></a>
             </div>
     
         </div>
@@ -33,59 +32,59 @@
 
 
 
+
+    <div class="container">
     <div id="box">
-        <div id="form-box">
-            <h2>Criar Conta</h2>
-            <p> ja possui uma conta? <a href="login.html"> Login </a></p>
-            <form onsubmit="return false;">
-                <input id="nome" type="nome" placeholder="nome" required><br>
-                <input id="email" type="email" placeholder="email" required><br>
-                <input id="telefone" type="text" placeholder="telefone" required><br>
-                <input id="senha" type="password" placeholder="senha" required><br>
-                <button type="button" onclick="cadastrar()">cadastrar</button>
-            </form>
-            <p id="mensagem"></p>
-        </div>
+        <h1>realizar login</h1>
+        <p>ainda nao possui uma conta? <a href="registrar.html">registre-se</a></p>
+        <form onsubmit="return false;">
+            <input type="email" id="email" placeholder="Digite seu email" required>
+            <br>
+            <input type="password" id="senha" placeholder="Digite sua senha" required><br>
+            <button type="button" onclick="login()">entrar</button><br>
+            
+        </form>
+        
+        <p id="mensagem"></p>
+    </div>
     </div>
 
-<script>
-    const supabaseClient = window.supabase.createClient(
+    <script>
+        const supabaseClient = window.supabase.createClient(
             "https://ucboerqhyglomysqvehy.supabase.co",
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjYm9lcnFoeWdsb215c3F2ZWh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM2MDU3ODIsImV4cCI6MjA1OTE4MTc4Mn0.1KiDEnYpKYqbfVaarGE0-ECIR_duhyZ6zbJ1KFslc6c"
         );
-    async function cadastrar() {
-            console.log("Tentando cadastrar...");
-            const nome = document.getElementById("nome").value.trim();
-            const telefone = document.getElementById("telefone").value.trim();
+
+        async function login() {
+            console.log("Tentando fazer login...");
             const email = document.getElementById("email").value.trim();
             const senha = document.getElementById("senha").value.trim();
-
-            if (!nome || !telefone || !email || !senha) {
+            
+            if (!email || !senha) {
                 document.getElementById("mensagem").innerText = "Preencha todos os campos!";
                 return;
             }
 
-
-            const { data, error } = await supabaseClient.auth.signUp({ email, password: senha,
-                options:{
-                    data:{
-                        nome: nome,
-                        telefone:telefone
-                    }
-                }
-             });
-            
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: senha });
 
             if (error) {
                 document.getElementById("mensagem").innerText = "Erro: " + error.message;
             } else {
-                document.getElementById("mensagem").innerText = "Cadastro realizado com sucesso!";
+                document.getElementById("mensagem").innerText = "Login realizado com sucesso!";
+                localStorage.setItem("usuarioEmail", email);
+                setTimeout(() => {
+                    window.location.href = "bem-vindo.html";
+                }, 2000);
             }
         }
-        
-</script>
 
-  
+    
+    </script>
+
+
+
+
+
 <footer id="footer">
     <div id="footer-box">
         <div id="alinhar-img">
@@ -108,6 +107,7 @@
         <p>© 2025 OZEN. todos os direitos reservados</p>
     </div>
 </footer>
+
 
 </body>
 </html>
