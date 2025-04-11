@@ -55,7 +55,7 @@ header{background-color: rgb(255, 255, 255);position: fixed;width: 100%;top:0;le
 
 
 
-#box-left{background-color: rgb(214, 214, 214);margin-right: 50px;width: 30%;height: 400px;margin-top: 150px;border-radius: 5px;}
+#box-left{background-color: rgb(214, 214, 214);margin-right: 50px;width: 30%;height: 400px;margin-top: 150px;border-radius: 10px;}
 #box-left h2{margin-left: 20px;}
 
 #box-left input{margin-left: 20px;margin-top: 5px;width: 80%;height: 25px;border-radius: 5px;border:none}
@@ -80,7 +80,7 @@ header{background-color: rgb(255, 255, 255);position: fixed;width: 100%;top:0;le
 #submit:hover::before{opacity: 0 ;transform: scale(0.5,0.5);}
 #submit::after{
   content: '';
-  border-radius: 5px;
+  border-radius: 10px;
   position: absolute;
   top: 0;
   left: 0;
@@ -100,7 +100,7 @@ header{background-color: rgb(255, 255, 255);position: fixed;width: 100%;top:0;le
 
 
 
-#box-right{background-color: rgb(214, 214, 214);margin-right: 50px;width: 30%;height: 400px;text-align: right;margin-top: 150px;border-radius: 5px;}
+#box-right{background-color: rgb(214, 214, 214);margin-right: 50px;width: 30%;height: 400px;text-align: right;margin-top: 150px;border-radius: 10px;}
 #box-right h3{padding:0 40px;margin-top: 20px;}
 #box-right p{padding: 0 40px;margin:0px}
 
